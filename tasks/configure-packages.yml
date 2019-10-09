@@ -30,7 +30,7 @@
 - name: Deploy ClamAV daemon VirusEvent script if needed
   template:
     src: clamav_virus_alert.sh.j2
-    dest: "{{clamav_daemon_virus_event_script_name}}"
+    dest: "{{ clamav_daemon_virus_event_script_name }}"
     owner: root
     group: root
     mode: 0755

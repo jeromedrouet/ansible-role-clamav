@@ -108,7 +108,7 @@ See OS-specific variable files in var/
               - "^/run/"  
               - "^/sys/"  
               - "^/var/lib/sss/pipes/"  
-              - "^{{clamav_daemon_temporary_directory}}/"  
+              - "^{{ clamav_daemon_temporary_directory }}/"  
               # access denied on /var/log/audit/audit.log* anyway :p (and the following files/drectories) :  
               - "^/var/log/audit/"  
               - "^/etc/audit/"  

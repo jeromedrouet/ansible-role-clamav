@@ -215,7 +215,7 @@ ExcludePath {{ location_regexp }}
 # Default: no
 #VirusEvent /usr/local/bin/send_sms 123456789 "VIRUS ALERT: %v"
 {% if clamav_daemon_virus_event_use_script %}
-VirusEvent {{clamav_daemon_virus_event_script_name}}
+VirusEvent {{ clamav_daemon_virus_event_script_name }}
 {% else %}
 {% if clamav_daemon_virus_event_command is defined %}
 VirusEvent '{{ clamav_daemon_virus_event_command }}'

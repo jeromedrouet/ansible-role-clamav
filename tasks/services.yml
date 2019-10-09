@@ -22,7 +22,7 @@
   tags: freshclam-database
   register: freshclam_database
   wait_for:
-    path:  "{{item}}"
+    path:  "{{ item }}"
     delay: 10
     timeout: 50
     state: present
