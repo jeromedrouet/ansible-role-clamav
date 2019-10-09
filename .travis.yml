@@ -1,0 +1,32 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: clamav
+  matrix:
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: debian9
+
+install:
+  # Install test dependencies.
+  - pip install molecule docker
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ..
+  - mv ansible-role-$ROLE_NAME jeromedrouet.ansible_role_$ROLE_NAME
+  - cd jeromedrouet.ansible_role_$ROLE_NAME
+
+script:
+  # print molecule and ansible versions
+  - molecule --version
+  - ansible --version
+  # Run tests.
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
