@@ -17,4 +17,3 @@
   - name: Enable SElinux antivirus_can_scan_system if needed
     shell: setsebool antivirus_can_scan_system on -P
     when: ( antivirus_can_scan_system_ is defined and antivirus_can_scan_system_.stdout is defined and ( "--> off" in antivirus_can_scan_system_.stdout ) )
-

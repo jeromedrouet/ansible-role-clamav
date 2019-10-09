@@ -36,4 +36,3 @@
     mode: 0755
   tags: [ clamd-conf, clamd-virus-event ]
   when: clamav_daemon_virus_event_ansible_deploy_script
-

@@ -24,4 +24,3 @@
   set_fact:
     clamav_onaccess_scanning: "{{ clamav_onaccess_mount_paths is defined or clamav_onaccess_include_paths is defined }}"
   when: clamav_onaccess_scanning is not defined
-

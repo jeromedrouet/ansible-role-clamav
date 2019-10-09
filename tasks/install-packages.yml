@@ -7,5 +7,3 @@
     name: "{{ clamav_packages }}"
     state: present
   register: clamav_packages_install
-
-

@@ -39,4 +39,3 @@
 # add periodic scan cron task if needed
 - include_tasks: periodic-scan.yml
   when: clamav_periodic_scan_enabled
-

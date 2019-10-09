@@ -15,4 +15,3 @@ clamav_daemon_localsocket: /var/run/clamd.scan/clamd.sock
 # service names
 clamav_daemon: 'clamd@scan'
 clamav_freshclam_daemon: 'clamd-freshclam'
-

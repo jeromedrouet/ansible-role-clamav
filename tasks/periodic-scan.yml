@@ -29,5 +29,3 @@
     owner: root
     mode: 0664
   when: clamav_periodic_scan_enabled
-
-
