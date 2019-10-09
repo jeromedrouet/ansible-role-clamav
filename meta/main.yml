@@ -69,7 +69,7 @@ galaxy_info:
     #
     # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
     #       Maximum 20 tags per role.
-  galaxy_tags: 
+  galaxy_tags:
     - clamav
     - antivirus
     - virusscan
