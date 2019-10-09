@@ -15,5 +15,5 @@
     when: ( getenforce is defined and getenforce.stdout is defined and ( "Enforcing" in getenforce.stdout or "Permissive" in getenforce.stdout ) )
 
   - name: Enable SElinux antivirus_can_scan_system if needed
-    shell: setsebool antivirus_can_scan_system on -P
+    command: setsebool antivirus_can_scan_system on -P
     when: ( antivirus_can_scan_system_ is defined and antivirus_can_scan_system_.stdout is defined and ( "--> off" in antivirus_can_scan_system_.stdout ) )
