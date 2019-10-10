@@ -41,8 +41,8 @@
        name: "{{ custom_repo_package }}"
        state: present
     environment:
-      http_proxy: "{{ rpm_proxy }}"
-      https_proxy: "{{ rpm_proxy }}"
+      http_proxy: "{{ rpm_proxy | default('') }}"
+      https_proxy: "{{ rpm_proxy | default('') }}"
     when: custom_repo_package is defined and
           custom_repofile is defined and ( custom_repofile_.stat is not defined or not custom_repofile_.stat.exists ) and
           ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' )
@@ -118,4 +118,5 @@
     when:
        - (ansible_distribution == 'RedHat' and ansible_distribution_major_version == '7') or
          (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7')
+       - rpm_proxy is defined
        - enable_custom_repositories is defined
