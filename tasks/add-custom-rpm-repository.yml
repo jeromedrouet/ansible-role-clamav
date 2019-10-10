@@ -43,8 +43,8 @@
     environment:
       http_proxy: "{{ rpm_proxy }}"
       https_proxy: "{{ rpm_proxy }}"
-    when: custom_repo_package is defined and 
-          custom_repofile is defined and ( custom_repofile_.stat is not defined or custom_repofile_.stat.exists == False ) and 
+    when: custom_repo_package is defined and
+          custom_repofile is defined and ( custom_repofile_.stat is not defined or custom_repofile_.stat.exists == False ) and
           ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' )
 
   - name: Define custom repository using given source template for repofile
