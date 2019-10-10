@@ -55,7 +55,11 @@
 - name: Check service status
   command: "systemctl status {{ clamav_daemon }}"
   ignore_errors: true
+  tags:
+    - skip_ansible_lint
 
 - name: Check service status (bis)
   command: "journalctl -xe"
   ignore_errors: true
+  tags:
+    - skip_ansible_lint
