@@ -12,3 +12,6 @@
     state: stopped
     daemon_reload: true
   when: freshclam_service_template.changed
+  # TODO : migrate this to a handler an re activate ansible lint
+  tags:
+    - skip_ansible_lint
