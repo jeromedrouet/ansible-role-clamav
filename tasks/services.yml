@@ -44,6 +44,11 @@
     - not clamav_freshclam_daemon_run
     - clamav_packages_install.changed or clamav_configuration.changed
 
+- name: list files in /va/lib/clamav
+  command: "ls -als /var/lib/clamav"
+  tags:
+    - skip_ansible_lint
+
 - name: Ensure ClamAV daemon is running (if configured so)
   service:
     name: "{{ clamav_daemon }}"
@@ -61,5 +66,10 @@
 - name: Check service status (bis)
   command: "journalctl -xe"
   ignore_errors: true
+  tags:
+    - skip_ansible_lint
+
+- name: list files in /va/lib/clamav
+  command: "ls -als /var/lib/clamav"
   tags:
     - skip_ansible_lint
