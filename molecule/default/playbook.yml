@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   roles:
-    - role: clamav
+    - role: jeromedrouet.ansible_role_clamav
       parameter1: value1
       parameter2: value2
