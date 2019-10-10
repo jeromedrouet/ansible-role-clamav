@@ -115,6 +115,7 @@ DatabaseMirror database.clamav.net
 #HTTPProxyPort 1234
 #HTTPProxyUsername myusername
 #HTTPProxyPassword mypass
+{% if freshclam_proxy is defined %}
 {% if freshclam_proxy.hostname is defined %}
 HTTPProxyServer {{ freshclam_proxy.hostname }}
 {% endif %}
@@ -131,6 +132,7 @@ HTTPProxyUsername {{ freshclam_proxy.username }}
 {# need a proper/better way to pass (incomplete) list variables to roles, in the meantime ... #}
 {% if 'password' in freshclam_proxy and freshclam_proxy.password != '' %}
 HTTPProxyPassword {{ freshclam_proxy.password }}
+{% endif %}
 {% endif %}
 
 # If your servers are behind a firewall/proxy which applies User-Agent
