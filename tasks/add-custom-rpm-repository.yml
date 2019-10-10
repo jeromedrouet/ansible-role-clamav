@@ -44,7 +44,7 @@
       http_proxy: "{{ rpm_proxy }}"
       https_proxy: "{{ rpm_proxy }}"
     when: custom_repo_package is defined and
-          custom_repofile is defined and ( custom_repofile_.stat is not defined or custom_repofile_.stat.exists == False ) and
+          custom_repofile is defined and ( custom_repofile_.stat is not defined or not custom_repofile_.stat.exists ) and
           ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' )
 
   - name: Define custom repository using given source template for repofile
@@ -67,7 +67,7 @@
   - name: Ensure custom repository file exists before going further
     assert:
       that:
-        - (custom_repofile__.stat.exists == True)
+        - custom_repofile__.stat.exists
       msg: >-
         Something went wrong the custom_repofile variable you provided seems wrong,
         this files does not exist
