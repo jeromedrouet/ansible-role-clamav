@@ -97,7 +97,7 @@
       dest: "{{ custom_repofile }}"
       section: "{{ item }}"
       option: enabled
-      value: 1
+      value: "1"
       no_extra_spaces: yes
     with_items:
        - "{{ enable_custom_repositories }}"
