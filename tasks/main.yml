@@ -2,6 +2,9 @@
 # ClamAV ansible role
 # main tasks file
 
+- debug:
+    var: ansible_distribution
+
 # gather OS-Specific variables
 - name: Include OS-Specific variables
   include_vars: "{{ item }}"
