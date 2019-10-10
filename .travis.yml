@@ -6,9 +6,13 @@ env:
   global:
     - ROLE_NAME: clamav
   matrix:
-    - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: centos:7
+#    - MOLECULE_DISTRO: ubuntu:trusty
+#    - MOLECULE_DISTRO: ubuntu:xenial
+#    - MOLECULE_DISTRO: ubuntu:bionic
+#    - MOLECULE_DISTRO: debian:jessie
+#    - MOLECULE_DISTRO: debian:stretch
+#    - MOLECULE_DISTRO: debian:buster
 
 install:
   # Install test dependencies.
