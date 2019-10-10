@@ -3,7 +3,7 @@
   - name: gather os specific variables
     include_vars: "{{ item }}"
     with_first_found:
-      - "epel-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+      - "epel-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
       - "epel-{{ ansible_distribution }}.yml"
     tags: vars
 
