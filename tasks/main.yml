@@ -5,6 +5,9 @@
 - debug:
     var: ansible_distribution
 
+- debug:
+    var: ansible_os_family
+
 # gather OS-Specific variables
 - name: Include OS-Specific variables
   include_vars: "{{ item }}"
@@ -22,6 +25,10 @@
 - include_tasks: preflight-checks.yml
   tags:
     - check-configuration-consistency
+
+# EPEL repository needed on CentOS and RedHat
+- include_tasks: add-epel-rpm-repository.yml
+  when: ansible_os_family == 'RedHat'
 
 # Let's install required packages
 - include_tasks: install-packages.yml
