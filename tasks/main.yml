@@ -6,7 +6,7 @@
 - name: Include OS-Specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "clamav-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "clamav-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
     - "clamav-{{ ansible_distribution }}.yml"
     - "clamav-defaults.yml"
   tags: vars
