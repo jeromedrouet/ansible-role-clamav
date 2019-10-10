@@ -50,3 +50,12 @@
     state: "{{ clamav_daemon_state }}"
     enabled: "{{ clamav_daemon_enabled }}"
     daemon_reload: yes
+  ignore_errors: true
+
+- name: Check service status
+  command: "systemctl status {{ clamav_daemon }}"
+  ignore_errors: true
+
+- name: Check service status (bis)
+  command: "journalctl -xe"
+  ignore_errors: true
