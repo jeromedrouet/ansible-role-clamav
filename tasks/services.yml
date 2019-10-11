@@ -24,6 +24,9 @@
   tags:
     - skip_ansible_lint
 
+- debug:
+    var: clamav_freshclam_daemon_run
+
 - name: Waiting until database files can be found in /var/lib/clamav
   tags:
     - freshclam-database
