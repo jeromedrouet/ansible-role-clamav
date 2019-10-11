@@ -16,7 +16,7 @@
 
 - name: Define clamav_freshclam_daemon_run boolean
   set_fact:
-    clamav_freshclam_daemon_run: "'{{ clamav_freshclam_daemon_state }}' == 'started' | bool"
+    clamav_freshclam_daemon_run: "{{ clamav_freshclam_daemon_state == 'started' | bool }}"
   when: clamav_freshclam_daemon_run is not defined
 
 # when on access scanning is enabled ClamAV daemon need to run as root user
