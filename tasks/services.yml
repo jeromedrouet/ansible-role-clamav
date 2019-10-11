@@ -28,9 +28,9 @@
     var: clamav_freshclam_daemon_run
 
 - debug:
-    msg: "{{ clamav_freshclam_daemon_state }} == 'started'"
+    msg: "{{ clamav_freshclam_daemon_state == 'started' }}"
 
-- name: Waiting until database files can be found in /var/lib/clamav
+- name: Waiting until ClamAV database files can be found in /var/lib/clamav (freshclam should provide them)
   tags:
     - freshclam-database
     # TODO : migrate this to a handler an re activate ansible lint
@@ -46,14 +46,9 @@
     - "/var/lib/clamav/main.cvd"
     - "/var/lib/clamav/daily.cvd"
   ignore_errors: true
-  when:
-    - not clamav_freshclam_daemon_run
-    - clamav_packages_install.changed or clamav_configuration.changed
-
-- name: list files in /va/lib/clamav
-  command: "ls -als /var/lib/clamav"
-  tags:
-    - skip_ansible_lint
+#  when:
+#    - not clamav_freshclam_daemon_run
+#    - clamav_packages_install.changed or clamav_configuration.changed
 
 - name: Ensure ClamAV daemon is running (if configured so)
   service:
@@ -61,21 +56,3 @@
     state: "{{ clamav_daemon_state }}"
     enabled: "{{ clamav_daemon_enabled }}"
     daemon_reload: yes
-#  ignore_errors: true
-
-#- name: Check service status
-#  command: "systemctl status {{ clamav_daemon }}"
-#  ignore_errors: true
-#  tags:
-#    - skip_ansible_lint
-
-#- name: Check service status (bis)
-#  command: "journalctl -xe"
-#  ignore_errors: true
-#  tags:
-#    - skip_ansible_lint
-
-- name: list files in /va/lib/clamav
-  command: "ls -als /var/lib/clamav"
-  tags:
-    - skip_ansible_lint
