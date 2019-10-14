@@ -6,12 +6,15 @@ env:
   global:
     - ROLE_NAME: clamav
   matrix:
+    include:
+        - env: ['MOLECULE_DISTRO: centos:7', 'MOLECULE_DOCKER_COMMAND=/usr/sbin/init']
+        - env: ['MOLECULE_DISTRO: debian:jessie']
     - MOLECULE_DISTRO: centos:7
 #    - MOLECULE_DISTRO: ubuntu:trusty
 #    - MOLECULE_DISTRO: ubuntu:xenial
 #    - MOLECULE_DISTRO: ubuntu:bionic
-    - MOLECULE_DISTRO: debian:jessie
-    - MOLECULE_DISTRO: debian:stretch
+#    - MOLECULE_DISTRO: debian:jessie
+#    - MOLECULE_DISTRO: debian:stretch
 #    - MOLECULE_DISTRO: debian:buster
 
 install:
