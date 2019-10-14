@@ -9,8 +9,8 @@ platforms:
   - name: instance
     #image: "quay.io/ansible/molecule:latest"
     image: ${MOLECULE_DISTRO:-centos:7}
-    #command: ${MOLECULE_DOCKER_COMMAND:-""}
-    command: "/usr/sbin/init"
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    #command: "/usr/sbin/init"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
